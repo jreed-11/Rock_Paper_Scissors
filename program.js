@@ -64,3 +64,35 @@ function playRound (playerSelection, computerSelection) {
            } 
  }  
 
+ function game () {
+    let playerSelection, computerSelection, result;
+    
+    for (let i = 0; i < 5; i++) {
+      playerSelection = userPlay()     
+      computerSelection = computerPlay();    
+      console.log(`User Plays ${playerSelection}, Computer Plays ${computerSelection}`);
+      result = (playRound(playerSelection, computerSelection));
+ 
+      if (result) {
+      userScore += 1;      
+      } else if (result === false) {
+      computerScore += 1;
+      } 
+ 
+      
+    }
+ 
+    console.log(`Current Score - Player: ${userScore}, Computer: ${computerScore}`);
+ 
+      if (userScore > computerScore) {
+      return "User Wins!"
+      } else if (computerScore > userScore) {
+      return "Compuer Wins! You lose :("
+      } else {
+      return "No one wins! Play again?"
+      }
+    
+  }
+ 
+  console.log(game());
+
